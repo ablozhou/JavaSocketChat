@@ -2,10 +2,10 @@
 * @title Client.java
 * @author Andy Zhou/周海汉  
 * @date：2016年2月27日 下午12:52:23 
-* Copyright 2016 知藏. All right reserved.
+* Copyright 2016 zhh. All right reserved.
 *  
 */ 
-package com.zc;
+package com.abloz;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -15,11 +15,11 @@ import java.net.UnknownHostException;
  * Client
  * 
  */
-public class Client {
+public class MyClient {
     private Socket socket;
     int port;
     String host;
-    public Client(String host,int port) {
+    public MyClient(String host,int port) {
         this.host = host;
         this.port = port;
     }
@@ -33,7 +33,7 @@ public class Client {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        Connector conn = new Connector(socket);
+        MyConnector conn = new MyConnector(socket);
         conn.run();
     }
     

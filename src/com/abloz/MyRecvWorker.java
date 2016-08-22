@@ -2,10 +2,10 @@
 * @title Worker.java
 * @author Andy Zhou/周海汉  
 * @date：2016年2月27日 上午11:44:15 
-* Copyright 2016 知藏. All right reserved.
+* Copyright 2016 zhh. All right reserved.
 *  
 */ 
-package com.zc;
+package com.abloz;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -19,10 +19,10 @@ import java.util.concurrent.Callable;
  * Worker
  * 
  */
-public class RecvWorker implements Callable<String> {
+public class MyRecvWorker implements Callable<String> {
 
     private Socket socket;
-    public RecvWorker(Socket socket) {
+    public MyRecvWorker(Socket socket) {
         this.socket = socket;
     }
     @Override

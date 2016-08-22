@@ -2,10 +2,10 @@
 * @title MyIo.java
 * @author Andy Zhou/周海汉  
 * @date：2016年2月26日 下午10:37:59 
-* Copyright 2016 知藏. All right reserved.
+* Copyright 2016 zhh. All right reserved.
 *  
 */
-package com.zc;
+package com.abloz;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
-
 /**
  * MyIo
  * 
@@ -43,7 +42,7 @@ public class MyIo {
 
     public static void inputStreamReader(String filename) {
         try {
-            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filename), "UTF-8"));
+            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filename), "utf8"));
             String s;
             try {
                 while ((s = br.readLine()) != null) {
@@ -61,19 +60,25 @@ public class MyIo {
     }
 
     public static void clientSocketIO(String host,int port) {
-       Client c = new Client(host,port);
+       MyClient c = new MyClient(host,port);
        c.start();
     }
 
     public static void serverSocketIO(int port) {
-       Server s = Server.getInstance(port) ;
+       MyServer s = MyServer.getInstance(port) ;
        s.start();
     }
 
     public static void main(String[] args) {
         int port = 3456;
-        
-        
+        ConnMgr c = new ConnMgr();
+        c.add();
+        String dir = System.getProperty("java.ext.dirs");
+        System.out.println(dir);
+        //System.loadLibrary("mylib");
+        String classpath = new MyIo().getClass().getClassLoader().getResource("").toString();
+        System.out.println(classpath);
+        inputStreamReader(filename);
         System.out.println("Simple Java chat by Andy zhou.\nrun:\n\tjava -jar me.jar [s|c]\n\t default run as server");
         if (args.length == 0 || args[0].equals("s") ) {
 
